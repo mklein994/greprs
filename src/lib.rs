@@ -64,9 +64,9 @@ impl Config {
 }
 
 pub fn run(config: Config) -> Result<(), Box<Error>> {
-    let mut f = File::open(config.filename)?; // .expect("file not found");
+    let mut f = File::open(config.filename)?;
     let mut contents = String::new();
-    f.read_to_string(&mut contents)?; // .expect("something went wrong reading the file");
+    f.read_to_string(&mut contents)?;
 
     let results = if config.case_sensitive {
         search(&config.query, &contents)
